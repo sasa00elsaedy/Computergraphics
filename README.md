@@ -9,5 +9,6 @@
 
 # 5 - write:  
          pip install sasa_drawer-0.0.1-py3.whl
+         pip install pydicom
          
 # 6 - LOOK AT TEST FILE IN REPO
