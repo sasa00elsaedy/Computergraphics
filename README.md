@@ -10,4 +10,4 @@
 # 5 - write:  
          pip install sasa_drawer-0.0.1-py3-none-any.whl
          
-# 5 - LOOK AT TEST FILE IN REPO
+# 6 - LOOK AT TEST FILE IN REPO
