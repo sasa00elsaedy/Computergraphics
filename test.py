@@ -1,5 +1,5 @@
 from drawer_lib.drawer import *
-import random
+import random, pydicom
 
 def draw_cube(scale_factor=1):
     scaled_vertices = get_cube_vertices(scale_factor)
@@ -59,9 +59,21 @@ draw(draw_function=draw_triangle,rotate=True)
 
 
 
+def dicom_to_png(dicom_file):
+    # Read DICOM image using pydicom
+    ds = pydicom.dcmread(dicom_file)
+    # Extract pixel data and convert to numpy array
+    pixel_data = ds.pixel_array
+    # Normalize pixel values to 0-255 range
+    pixel_data = ((pixel_data - pixel_data.min()) / (pixel_data.max() - pixel_data.min()) * 255).astype(np.uint8)
+    return pixel_data
+# use it to convert dicom image to png 
+
+
+
 def contourslice(image_path):
     # Read the image
-    image = cv2.imread(image_path)
+    image = cv2.imread(dicom_to_png(image_path))
     if image is None:
         print("Error: Could not read the image.")
         return
